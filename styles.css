@@ -95,6 +95,7 @@ body {
 .title {
     font-family: "TicTacToe";
     font-size: 96px;
+    text-align: center;
 }
 
 .footer {
