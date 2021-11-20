@@ -122,11 +122,23 @@ function App() {
      * @param winner - Winner of the game: "X", "O" or null, if it's a tie
      */
     this.finishGame = (winner) => {
-        console.log(winner);
         const cells = document.querySelectorAll(".cell");
         for (let cell of cells) {
             cell.innerHTML = "";
         }
         this.Ai.reset();
+        let finishDiv = document.querySelector("#draw");
+        let board = document.querySelector("#board");
+        if (winner === "X") {
+            finishDiv = document.querySelector("#you_win");
+        } else if (winner === "O") {
+            finishDiv = document.querySelector("#you_fail");
+        }
+        finishDiv.style.display = "flex";
+        board.style.display = "none";
+        setTimeout(()=> {
+            finishDiv.style.display = "none";
+            board.style.display = "flex";
+        }, 3000)
     }
 }

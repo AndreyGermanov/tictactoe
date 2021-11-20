@@ -2,11 +2,12 @@
 <html lang="en" style="width:100%;height:100%;padding:0;margin:0;">
 <head>
     <meta charset="UTF-8">
-    <title>Tic Tac Toe</title>
+    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" type="text/css" href="styles.css"/>
 </head>
-<body style="width:100%;height:100%;padding:0;margin:0;">
-    <div style="padding:0;margin:0;width:100%;height:100%;display:flex;flex-direction:row;align-items:center;justify-content:center">
+<body>
+    <div class="title">Tic-Tac-Toe</div>
+    <div class="content">
         <div id="board">
             <div class="board_row">
                 <div id="cell_0_0" class="cell">
@@ -32,6 +33,37 @@
                 <div id="cell_2_2" class="cell">
                 </div>
             </div>
+        </div>
+        <div class="finish_title" id="you_win">
+            You Are Win
+        </div>
+        <div class="finish_title"  id="you_fail">
+            You Are Fail
+        </div>
+        <div class="finish_title"  id="draw">
+            Draw
+        </div>
+    </div>
+    <div class="footer">
+        <div class="credits">
+            &copy; 2021 Andrey Germanov<br/>
+        </div>
+        <div>
+            <a href="https://github.com/AndreyGermanov/tictactoe" target="_blank" title="GitHub">
+                <img alt="GitHub" src="assets/github.png"/>
+            </a>
+            <a href="https://www.linkedin.com/in/andrey-germanov-dev" target="_blank" title="linkedIn">
+                <img alt="LinkedIn" src="assets/linkedin.png"/>
+            </a>
+            <a href="https://web.facebook.com/AndreyGermanovDev" target="_blank" title="Facebook">
+                <img alt="Facebook" src="assets/facebook.png"/>
+            </a>
+            <a href="https://www.youtube.com/channel/UCx8mmAlzNbEod6oGfw8FpTg" target="_blank" title="YouTube">
+                <img alt="Youtube" src="assets/youtube.png"/>
+            </a>
+            <a href="https://twitter.com/GermanovDev" target="_blank" title="Twitter">
+                <img alt="Twitter" src="assets/twitter.png"/>
+            </a>
         </div>
     </div>
     <script src="ai.js"></script>
