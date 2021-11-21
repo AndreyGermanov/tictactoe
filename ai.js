@@ -164,9 +164,8 @@ function Ai() {
     this.minimax = (board= null) => {
         if (!board) { board = this.board }
         const actions = this.actions(board);
-        const random_action = actions[this.getRandom(0,actions.length)];
         if (this.is_random_move(board)) {
-            return random_action;
+            return actions[this.getRandom(0, actions.length)];
         }
         let act = null
         const p = this.player(board);
