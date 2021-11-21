@@ -197,7 +197,9 @@ function Ai() {
      * @returns - True if yes, and false if no
      */
     this.is_random_move = (board) => {
+        console.log(this.mode);
         if (this.is_empty_board(board)) {
+            console.log("---");
             return true;
         }
         const probability = this.getRandom(0,11);
