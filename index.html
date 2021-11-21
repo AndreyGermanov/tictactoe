@@ -8,7 +8,7 @@
 <body>
     <div class="title">Tic-Tac-Toe</div>
     <div class="content">
-        <div id="board">
+        <div id="board" style="display:none">
             <div class="board_row">
                 <div id="cell_0_0" class="cell">
                 </div>
@@ -33,6 +33,24 @@
                 <div id="cell_2_2" class="cell">
                 </div>
             </div>
+        </div>
+        <div class="start_panel">
+            <div class="play_as">PLAY AS:</div>
+            <div class="playerTypeContainer">
+                <img alt="x" src="assets/x.svg" width="10%"  class="playerType selected" id="player_X" style="margin-right: 10px"/>
+                <img alt="o" src="assets/o.svg" width="10%"  class="playerType" id="player_O"/>
+            </div>
+            <div class="play_as">MODE:</div>
+            <div class="mode" id="mode_easy">
+                EASY
+            </div>
+            <div class="mode mode_selected" id="mode_medium">
+                MEDIUM
+            </div>
+            <div class="mode"  id="mode_hard">
+                HARD
+            </div>
+            <div class="start_btn">&gt; PLAY</div>
         </div>
         <div class="finish_title" id="you_win">
             You Won

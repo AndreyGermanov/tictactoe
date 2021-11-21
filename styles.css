@@ -153,7 +153,6 @@ a:hover {
     animation-name: draw;
 }
 
-
 @keyframes you_win {
     0% {color: black;}
     25% {color: green;}
@@ -176,5 +175,95 @@ a:hover {
     50% {color: white;}
     75% {color: gray;}
     100% {color: black;}
+}
+
+.playerType {
+    border-color:transparent;
+    border-radius: 10px;
+    border-style:solid;
+    border-width:2px;
+    padding:10px;
+}
+
+.playerType:hover {
+    cursor: pointer;
+    border-color: black;
+}
+
+.selected {
+    color:white;
+    background-color:gray;
+    border-color: black;
+}
+
+.mode {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    width:50%;
+    font-family: TicTacToe;
+    font-size:24px;
+    padding:10px;
+    margin: 10px;
+    border-color:black;
+    border-style:solid;
+    border-width:2px;
+}
+
+.mode:hover {
+    cursor: pointer
+}
+
+.mode_selected {
+    color:white;
+    background-color:gray;
+}
+
+.start_panel {
+    display:flex;
+    width:50%;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border-width:2px;
+    border-radius: 10px;
+    border-color: gray;
+    border-style:solid;
+    padding:5px;
+    margin:5px;
+}
+
+.play_as {
+    font-family: TicTacToe;
+    font-size:36px;
+    padding:10px;
+}
+
+.playerTypeContainer {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+}
+.start_btn {
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    width:70%;
+    font-family: TicTacToe;
+    font-size:48px;
+    padding:10px;
+    margin: 10px;
+    border-color:black;
+    border-style:solid;
+    border-width:2px;
+    border-radius: 10px;
+}
+
+.start_btn:hover {
+    cursor: pointer;
+    background-color: gray;
 }
 

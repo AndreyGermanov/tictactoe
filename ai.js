@@ -7,6 +7,7 @@ function Ai() {
      * Clears game board
      */
     this.reset = () => {
+        this.mode = "medium";
         this.board = [
             [null, null, null],
             [null, null, null],
@@ -83,6 +84,22 @@ function Ai() {
     }
 
     /**
+     * Check if specified game board is empty
+     * @param board - Game Board
+     * @returns {boolean} - true if yes and false if no
+     */
+    this.is_empty_board = (board) => {
+        for (let i=0;i<3;i++) {
+            for (let j=0;j<3;j++) {
+                if (!this.is_empty(i,j)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    /**
      * Determines who is a winner, based on provided game board state.
      * @param board - Current game board
      * @returns "X", or "O" or null if nobody won
@@ -146,11 +163,16 @@ function Ai() {
      */
     this.minimax = (board= null) => {
         if (!board) { board = this.board }
+        const actions = this.actions(board);
+        const random_action = actions[this.getRandom(0,actions.length)];
+        if (this.is_random_move(board)) {
+            return random_action;
+        }
         let act = null
         const p = this.player(board);
         if (p === "X") {
             let max_v = -9999999;
-            for (let action of this.actions(board)) {
+            for (let action of actions) {
                 const v = this.min_value(this.result(board,action));
                 if (v > max_v) {
                     max_v = v;
@@ -159,7 +181,7 @@ function Ai() {
             }
         } else if (p === "O") {
             let min_v = 9999999;
-            for (let action of this.actions(board)) {
+            for (let action of actions) {
                 const v = this.max_value(this.result(board,action));
                 if (v < min_v) {
                     min_v = v;
@@ -168,6 +190,27 @@ function Ai() {
             }
         }
         return act;
+    }
+
+    /**
+     * Depending on selected mode, returns should computer do random move, instead of optimal
+     * @param board - Current game board
+     * @returns - True if yes, and false if no
+     */
+    this.is_random_move = (board) => {
+        if (this.is_empty_board(board)) {
+            return true;
+        }
+        const probability = this.getRandom(0,11);
+        switch (this.mode) {
+            case "easy":
+                return probability < 6;
+            case "medium":
+                return probability < 3;
+            case "hard":
+                return false;
+
+        }
     }
 
     /**
@@ -202,4 +245,13 @@ function Ai() {
         return v;
     }
 
+    /**
+     * Returns random integer value between min(inclusive) and max(exclusive)
+     * @param min - Minimum
+     * @param max - Maximum
+     * @returns - Random number between minimum and maximum
+     */
+    this.getRandom = (min, max) => {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
 }

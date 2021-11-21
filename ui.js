@@ -8,6 +8,7 @@ function App() {
      * Initializer. Starting AI, setup screen and event listeners for screen items
      */
     this.init = () => {
+        this.currentPlayer = "X";
         this.Ai = new Ai();
         this.Ai.reset();
         this.setupScreen();
@@ -52,6 +53,24 @@ function App() {
                 }
             })
         }
+        document.querySelectorAll(".playerType").forEach(item => {
+            item.addEventListener("click",(e) => {
+                document.querySelectorAll(".playerType").forEach(item => item.classList.remove("selected"))
+                this.currentPlayer = e.target.id.split("_").pop();
+                e.target.classList.add("selected")
+            })
+        })
+        document.querySelectorAll(".mode").forEach(item => {
+            item.addEventListener("click",(e) => {
+                document.querySelectorAll(".mode").forEach(item => item.classList.remove("mode_selected"))
+                this.Ai.mode = e.target.id.split("_").pop();
+                e.target.classList.add("mode_selected")
+            })
+        })
+
+        document.querySelector(".start_btn").addEventListener("click",()=> {
+            this.startGame();
+        });
     }
 
     /**
@@ -117,6 +136,10 @@ function App() {
         return cords;
     }
 
+    this.startGame = () => {
+
+    }
+
     /**
      * Based on provided "winner" finishes the game, clear game board and shows the result
      * @param winner - Winner of the game: "X", "O" or null, if it's a tie
@@ -127,18 +150,30 @@ function App() {
             cell.innerHTML = "";
         }
         this.Ai.reset();
+        let start_panel = document.querySelector(".start_panel");
         let finishDiv = document.querySelector("#draw");
         let board = document.querySelector("#board");
-        if (winner === "X") {
+        if (winner === this.currentPlayer) {
             finishDiv = document.querySelector("#you_win");
-        } else if (winner === "O") {
+        } else if (winner !== null) {
             finishDiv = document.querySelector("#you_fail");
         }
         finishDiv.style.display = "flex";
         board.style.display = "none";
-        setTimeout(()=> {
+        setTimeout(() => {
             finishDiv.style.display = "none";
-            board.style.display = "flex";
+            start_panel.style.display = "flex";
         }, 3000)
+    }
+
+    /**
+     *
+     */
+    this.startGame = () => {
+        document.querySelector(".start_panel").style.display = "none";
+        document.querySelector("#board").style.display = "flex";
+        if (this.currentPlayer === "O") {
+            this.computerMove();
+        }
     }
 }
