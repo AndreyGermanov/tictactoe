@@ -245,13 +245,14 @@ a:hover {
     flex-direction:row;
     justify-content: center;
     align-items: center;
+    width:50%;
 }
 .start_btn {
     display:flex;
     flex-direction:row;
     justify-content: center;
     align-items: center;
-    width:70%;
+    width:50%;
     font-family: TicTacToe;
     font-size:48px;
     padding:10px;
