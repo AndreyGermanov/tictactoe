@@ -226,7 +226,7 @@ a:hover {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-width:2px;
+    border-width:0px;
     border-radius: 10px;
     border-color: gray;
     border-style:solid;
